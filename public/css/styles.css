@@ -1,0 +1,75 @@
+body{
+  background-color: #F1F0F0;
+}
+
+.footer{
+  background-color: #f8fafc;
+  text-align: center;
+}
+
+/*---------------TITULOS-------------------*/
+
+.contenedor{
+  overflow:hidden;
+}
+
+.tituloPrincipal{
+  text-align: center;
+  margin-top: 5px;
+}
+
+.peliculas{
+  float: left;
+  width: 40%;
+  height: 250px;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  padding: 5px;
+  border: groove;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+}
+
+.peliculas h3{
+  text-align: center;
+  font-family: sans-serif;
+}
+
+ul{
+  list-style-type: none;
+}
+
+a{
+  text-align: center;
+}
+
+.scroll{
+  text-align: center;
+}
+
+h4{
+  display: inline-block;
+}
+
+/*----------------GENEROS------------------*/
+
+.generos{
+  float: left;
+  width: 30%;
+  height: 175px;
+  margin-left: 10%;
+  margin-right: 6%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 5px;
+  border: groove;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+}
+
+.generos h3{
+  text-align: center;
+  font-family: sans-serif;
+}
