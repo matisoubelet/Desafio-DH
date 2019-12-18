@@ -2,6 +2,7 @@
 
 @section("principal")
 
+
   <div class="agregarPelicula">
 
     @if (count($errors) > 0)
@@ -14,21 +15,22 @@
     </div>
 @endif
 
-<form class="" action="/agregarPelicula" method="post" enctype="multipart/form-data">
+<form class="" action="/editarPelicula" method="post" enctype="multipart/form-data">
   {{csrf_field()}}
+  <input type="hidden" name="id" value="{{$pelicula->id}}">
   <div class="text">
     <label for="title"><h4 class="form">Titulo:</h4></label>
-    <input type="text" name="title" value="{{old("title")}}">
+    <input type="text" name="title" placeholder="{{$pelicula->title}}" value="{{old("title")}}">
   </div>
 
   <div class="text">
     <label for="rating"><h4 class="form">Rating:</h4></label>
-    <input type="text" name="rating" value="{{old("rating")}}">
+    <input type="text" name="rating" placeholder="{{$pelicula->rating}}" value="{{old("rating")}}">
   </div>
 
   <div class="text">
     <label for="awards"><h4 class="form">Awards:</h4></label>
-    <input type="text" name="awards" value="{{old("awards")}}">
+    <input type="text" name="awards"placeholder="{{$pelicula->awards}}" value="{{old("awards")}}">
   </div>
 
   <div class="">
@@ -84,10 +86,11 @@
   </div>
 
   <div class="">
-    <input type="submit" name="" value="Agregar Pelicula">
+    <input type="submit" name="" value="Editar Pelicula">
   </div>
 
 </form>
   </div>
+
 
 @endsection

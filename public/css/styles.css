@@ -1,17 +1,28 @@
 body{
-  background-color: #F1F0F0;
+  background: url("/storage/fondo.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.flex{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .footer{
+  display: flex;
   background-color: #f8fafc;
-  text-align: center;
+  justify-content: center;
+  padding: 5px;
 }
-
-/*---------------TITULOS-------------------*/
 
 .contenedor{
   overflow:hidden;
 }
+
+/*------------------TITULOS-------------------*/
 
 .tituloPrincipal{
   text-align: center;
@@ -20,16 +31,21 @@ body{
 
 .peliculas{
   float: left;
-  width: 40%;
-  height: 250px;
+  width: 25%;
+  height: 275px;
   margin-left: 4%;
   margin-right: 4%;
   margin-top: 3%;
   margin-bottom: 3%;
   padding: 5px;
-  border: groove;
+  border: solid;
   border-radius: 8px;
-  background-color: #FFFFFF;
+}
+
+.imgFondo{
+  background: url("/storage/fondoPeliculas.png");
+  background-color: #EDDDC3;
+  background-size: 100% 100%;
 }
 
 .peliculas h3{
@@ -41,8 +57,17 @@ ul{
   list-style-type: none;
 }
 
-a{
+h3 a{
   text-align: center;
+  font-family: Anton;
+}
+
+h5{
+  text-decoration: underline;
+}
+
+.tipografia{
+  font-family: Cabin;
 }
 
 .scroll{
@@ -53,7 +78,7 @@ h4{
   display: inline-block;
 }
 
-/*----------------GENEROS------------------*/
+/*------------------GENEROS-------------------*/
 
 .generos{
   float: left;
@@ -64,12 +89,280 @@ h4{
   margin-top: 2%;
   margin-bottom: 2%;
   padding: 5px;
-  border: groove;
+  border: solid;
   border-radius: 8px;
-  background-color: #FFFFFF;
+  background-color: #EDDDC3;
+  font-family: Cabin;
 }
 
 .generos h3{
   text-align: center;
-  font-family: sans-serif;
+  font-family: Anton;
+}
+
+
+/*-------------------ACTORES------------------*/
+
+
+
+.actores{
+  float: left;
+  width: 15%;
+  height: 40px;
+  margin-left: 12%;
+  margin-right: 2%;
+  margin-top: 4%;
+  margin-bottom: 2%;
+  padding: 5px;
+  border: solid;
+  border-radius: 8px;
+  background-color: #EDDDC3;
+  text-align: center;
+  font-family: Cabin;
+}
+
+/*------------------DETALLE PELICULA-------------------*/
+
+.poster{
+  width: 500px;
+  margin: auto;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  padding: 5px;
+  padding-top: 10px;
+  border: groove;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  }
+
+.poster img{
+  width: 480px;
+}
+
+.centrarPoster{
+  text-align: center;
+  position:relative;
+  left: 30%;
+  top:10%;
+}
+
+
+/*------------------AGREGAR PELICULA-------------------*/
+
+.agregarPelicula{
+  width: 420px;
+  margin:auto;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  padding: 5px;
+  padding-top: 10px;
+  border: groove;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  text-align: center;
+  }
+
+  .error{
+    text-align: left;
+  }
+
+input[type=text] {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+input[type=submit], [type=file] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form{
+  margin-top: 15px;
+}
+
+/*------------------HOME-------------------*/
+
+.pelisRandom{
+  float: left;
+  width: 40%;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  padding: 5px;
+  border: solid;
+  border-radius: 8px;
+  background-color: #EDDDC3;
+}
+
+.ultimasPelis{
+  float: right;
+  width: 40%;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  padding: 5px;
+  border: solid;
+  border-radius: 8px;
+  background-color: #EDDDC3;
+}
+
+
+/*tablet*/
+@media(min-width:768px) and (max-width:1200px){
+
+.peliculas{
+  width: 40%;
+}
+
+.generos{
+  height: 235px;
+}
+
+.actores{
+  width: 30%;
+  margin-top: 8%;
+}
+
+}
+/*Tablet chica y telefono grande*/
+@media(min-width:425px) and (max-width:768px){
+
+.peliculas{
+  width: 65%;
+  height: 330px;
+  margin-left: 12%;
+}
+
+.generos{
+  width: 70%;
+  height: 235px;
+}
+
+.actores{
+  width: 65%;
+  margin-top: 16%;
+}
+
+.agregarPelicula{
+  width: 100%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  border: none;
+  border-radius: 0px;
+  }
+
+.poster{
+  width: 100%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  border: none;
+  border-radius: 0px;
+  }
+
+.poster img{
+  width: 100%;
+}
+
+.pelisRandom{
+  float: none;
+  width: 70%;
+  margin-left: 0%;
+  margin-right: 0%;
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.ultimasPelis{
+  float: none;
+  width: 70%;
+  margin-left: 0%;
+  margin-right: 0%;
+  margin: auto;
+}
+
+}
+
+@media only screen and (max-width: 425px) {
+
+  .pelisRandom{
+    float: none;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin: auto;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    border-radius: 0px;
+  }
+
+  .ultimasPelis{
+    float: none;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin: auto;
+    border-radius: 0px;
+  }
+
+  .actores{
+    width: 65%;
+    margin-top: 16%;
+  }
+
+  .generos{
+    float: none;
+    width: 90%;
+    height: 235px;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 0%;
+    margin-bottom: 2%;
+    border-radius: 0px;
+  }
+
+  .peliculas{
+    float: left;
+    width: 90%;
+    height: 275px;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 0%;
+    margin-bottom: 2%;
+    border-radius: 0px;
+  }
+
+  .agregarPelicula{
+    width: 100%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    border: none;
+    border-radius: 0px;
+    }
+
+  .poster{
+    width: 100%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    border: none;
+    border-radius: 0px;
+    }
+
+  .poster img{
+    width: 100%;
+  }
+
 }

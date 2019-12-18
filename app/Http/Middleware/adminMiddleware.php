@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class adminMiddleware
 {
@@ -13,11 +14,14 @@ class adminMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $role)
-    {
-      if(! $request->user()->hasRole($role)){
-        return view("home");
-      }
+    public function handle($request, $next){
+      if (Auth::user()->admin == 1) {
         return $next($request);
+      } else{
+        return redirect("home");
+      }
     }
+
+
+
 }

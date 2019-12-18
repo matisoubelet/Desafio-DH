@@ -2,12 +2,6 @@
 
 @section("principal")
 
-<div class="contenedor">
-
-<div class="tituloPrincipal borde">
-  <h1>Generos</h1>
-</div>
-
 <ul>
   @foreach($generos as $genero)
   <li>
@@ -27,10 +21,10 @@
 
   </div>
 
-</div>
+
 
 <div class="scroll">
-<h4>{{$generos->links()}}</h4> 
+<h4>{{$generos->links()}}</h4>
 </div>
 
 

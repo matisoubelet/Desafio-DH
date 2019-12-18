@@ -18,10 +18,14 @@ Route::get('/', function () {
 
 //Route::get('/inicio');
 
+//LOGOUT
+Route::get("/logout", "logoutController@logout");
+
 // HOME
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home', 'HomeController@shuffle')->name('home');
+Route::get('/home', 'HomeController@shuffleUltimas')->name('home');
+//Route::get('/home', 'HomeController@ultimas')->name('home');
 
 // ACTORES
 Route::get('/actores', 'actoresController@listado')->name('actores');
@@ -32,15 +36,19 @@ Route::get('/listadoGeneros', 'generosController@listado')->name('listadoGeneros
 // PELICULAS
 Route::get('/titulos', 'peliculasController@listado')->name('titulos');
 Route::get('/pelicula/{id}', 'peliculasController@detalle');
-Route::get('/resultados', 'peliculasController@buscar')->name('resultados'); //-------------> NO FUNCIONA
-Route::get('/editar', 'peliculasController@editar')->middleware('admin:admin');
+Route::get('/resultados', 'peliculasController@buscar')->name('resultados');
 //Route::get('/peliculas/top', 'peliculasController@top');
 
 // AGREGAR PELICULA
 Route::get('/agregarPelicula', function(){
   return view("agregarPelicula");
-});
+})->middleware("admin");
 Route::post('/agregarPelicula', 'peliculasController@agregar');
 
+
+// EDITAR PELICULA
+Route::get('/editarPelicula/{id}', 'peliculasController@identificar')->middleware("admin");
+Route::post('/editarPelicula', 'peliculasController@editar')->middleware("admin");
+
 // BORRAR PELICULA
-Route::post('/borrarPelicula', 'peliculasController@borrar');
+Route::post('/borrarPelicula', 'peliculasController@borrar')->middleware("admin");

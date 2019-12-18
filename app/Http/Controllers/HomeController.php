@@ -27,13 +27,23 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function shuffle(){
+    public function shuffleUltimas(){
 
-      $peliculas = Pelicula::all();
-      $shuffled = $peliculas->shuffle();
-      $shuffled->all()->take(5)->get();
-      $vac = compact("shuffled");
+      $shuffle = Pelicula::all();
+      $shuffle = $shuffle->shuffle();
+      $peliculas = $shuffle->take(5);
+
+      $vac = compact("peliculas");
+
+      $ultimas = Pelicula::where("rating", ">=", 0)
+      ->orderBy("id", "desc")
+      ->get();
+
+      $ultimas = $ultimas->take(5);
+
+      $vac = compact("peliculas", "ultimas");
       return view('home', $vac);
     }
+
 
 }

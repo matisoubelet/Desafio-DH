@@ -5,20 +5,25 @@
 @endsection
 
 @section("principal")
+<div class="contenedor">
 
-<h1>Mis Actores</h1>
-<ul>
-  @forelse($actores as $actor)
-  <li>
-    {{$actor->getNombreCompleto()}}
-  </li>
-  @empty
-  <p>
-    No hay actores.
-  </p>
-  @endforelse
-</ul>
+    <ul>
+      @forelse($actores as $actor)
+      <li>
+        <div class="actores">
+        {{$actor->getNombreCompleto()}}
+      </li>
+      @empty
+      <p>
+        No hay actores.
+      </p>
+      </div>
+      @endforelse
+    </ul>
+  </div>
 
-{{$actores->links()}}
+<div class="scroll">
+  <h4>{{$actores->links()}}</h4>
+</div>
 
 @endsection
