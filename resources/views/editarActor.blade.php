@@ -14,8 +14,9 @@
           </ul>
       </div>
   @endif
-    <form class="" action="/agregarActor" method="post" enctype="multipart/form-data">
+    <form class="" action="/editarActor" method="post" enctype="multipart/form-data">
       {{csrf_field()}}
+      <input type="hidden" name="id" value="{{$actor->id}}">
       <div class="text">
         <label for="first_name"><h4 class="form">Nombre:</h4></label>
         <input type="text" name="first_name" value="{{old("first_name")}}">
@@ -26,9 +27,8 @@
         <input type="text" name="last_name" value="{{old("last_name")}}">
       </div>
 
-
       <div class="">
-        <input type="submit" name="" value="Agregar actor">
+        <input type="submit" name="" value="Editar actor">
       </div>
     </form>
   </div>

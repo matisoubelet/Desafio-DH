@@ -30,7 +30,7 @@ class actoresController extends Controller
     public function agregar(Request $req){
 
       $relgas = [
-        "first_name"    => "string|min:3|unique:actors,first_name",
+        "first_name"    => "string|min:3",
         "last_name"     => "string|min:3|unique:actors,last_name",               // Validaciones: https://laravel.com/docs/5.8/validation#available-validation-rules
       ];
 
@@ -86,6 +86,59 @@ class actoresController extends Controller
 
       return redirect("actores");
 
+    }
+
+    public function detalle($id){
+
+      $actores = Actor::find($id);  //Esto es equivalente a un "SELECT * FROM movies (porque Pelicula pusimos que es movies)
+                                                                    //WHERE id (Porque marcamos que id es la PK de movies)" = $id
+      $vac = compact("actores");
+
+      return view('/detalleActor', $vac);
+    }
+
+    public function borrar(Request $form){
+      $id = $form["id"];
+
+      $actor = Actor::find($id);
+      $actor->delete();
+
+      return redirect("/actores");
+    }
+
+    public function identificar($id){
+
+      $actor = Actor::find($id);
+      $vac = compact("actor");
+
+      return view("/editarActor", $vac);
+    }
+
+    public function editar(Request $req){
+
+      $id = $_POST["id"];
+
+      $relgas = [
+        "first_name"    => "string|min:3",
+        "last_name"     => "string|min:3",               // Validaciones: https://laravel.com/docs/5.8/validation#available-validation-rules
+      ];
+
+      $mensajes = [
+        "string"  => "El campo :attribute debe ser un texto",
+        "min"     => "El campo :attribute tiene un minimo de :min",
+      
+      ];
+
+      $this->validate($req, $relgas, $mensajes);
+
+      $actorNuevo = Actor::find($id);
+
+      $actorNuevo->first_name = $req["first_name"];
+      $actorNuevo->last_name = $req["last_name"];
+
+      $actorNuevo->save();
+
+      return redirect("actores");
     }
 
 }

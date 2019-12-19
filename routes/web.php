@@ -29,6 +29,7 @@ Route::get('/home', 'HomeController@shuffleUltimas')->name('home');
 
 // ACTORES
 Route::get('/actores', 'actoresController@listado')->name('actores');
+Route::get('/actores/{id}', 'actoresController@detalle');
 
 //GENEROS
 Route::get('/listadoGeneros', 'generosController@listado')->name('listadoGeneros');
@@ -54,9 +55,16 @@ Route::post('/agregarActor', 'actoresController@agregar')->middleware("admin");
 Route::get('/editarPelicula/{id}', 'peliculasController@identificar')->middleware("admin");
 Route::post('/editarPelicula', 'peliculasController@editar')->middleware("admin");
 
+// EDITAR ACTOR
+Route::get('/editarActor/{id}', 'actoresController@identificar')->middleware("admin");
+Route::post('/editarActor', 'actoresController@editar')->middleware("admin");
+
 // AGREGAR ACTOR A PELICULA
-Route::get('/actores/{id}', 'actoresController@actorMovie')->middleware("admin");
-Route::post('/actores', 'actoresController@agregarActor')->middleware("admin");
+//Route::get('/actores/{id}', 'actoresController@actorMovie')->middleware("admin");
+//Route::post('/actores', 'actoresController@agregarActor')->middleware("admin");   --> TODAVIA NO FUNCIONA
 
 // BORRAR PELICULA
 Route::post('/borrarPelicula', 'peliculasController@borrar')->middleware("admin");
+
+// BORRAR ACTOR
+Route::post('/borrarActor', 'actoresController@borrar')->middleware("admin");
