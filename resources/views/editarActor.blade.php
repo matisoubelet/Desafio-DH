@@ -19,12 +19,12 @@
       <input type="hidden" name="id" value="{{$actor->id}}">
       <div class="text">
         <label for="first_name"><h4 class="form">Nombre:</h4></label>
-        <input type="text" name="first_name" value="{{old("first_name")}}">
+        <input type="text" name="first_name" placeholder="{{$actor->first_name}}" value="{{old("first_name")}}">
       </div>
 
       <div class="text">
         <label for="last_name"><h4 class="form">Apellido:</h4></label>
-        <input type="text" name="last_name" value="{{old("last_name")}}">
+        <input type="text" name="last_name" placeholder="{{$actor->last_name}}" value="{{old("last_name")}}">
       </div>
 
       <div class="">
