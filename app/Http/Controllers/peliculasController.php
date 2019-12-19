@@ -189,7 +189,7 @@ class peliculasController extends Controller
     public function listadoAPI(){
       $peliculas = Pelicula::all();   //Genera un json con todo el contenido de movies
 
-      return json_enconde($peliculas);
+       return json_encode($peliculas);
     }
 
     public function buscar()

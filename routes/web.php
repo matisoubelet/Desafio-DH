@@ -37,6 +37,7 @@ Route::get('/listadoGeneros', 'generosController@listado')->name('listadoGeneros
 Route::get('/titulos', 'peliculasController@listado')->name('titulos');
 Route::get('/pelicula/{id}', 'peliculasController@detalle');
 Route::get('/resultados', 'peliculasController@buscar')->name('resultados');
+//Route::get('/api', 'peliculasController@listadoAPI');
 //Route::get('/peliculas/top', 'peliculasController@top');
 
 // AGREGAR PELICULA
@@ -45,10 +46,17 @@ Route::get('/agregarPelicula', function(){
 })->middleware("admin");
 Route::post('/agregarPelicula', 'peliculasController@agregar');
 
+// AGREGAR ACTOR
+Route::get('/agregarActor', 'actoresController@datos')->middleware("admin");
+Route::post('/agregarActor', 'actoresController@agregar')->middleware("admin");
 
 // EDITAR PELICULA
 Route::get('/editarPelicula/{id}', 'peliculasController@identificar')->middleware("admin");
 Route::post('/editarPelicula', 'peliculasController@editar')->middleware("admin");
+
+// AGREGAR ACTOR A PELICULA
+Route::get('/actores/{id}', 'actoresController@actorMovie')->middleware("admin");
+Route::post('/actores', 'actoresController@agregarActor')->middleware("admin");
 
 // BORRAR PELICULA
 Route::post('/borrarPelicula', 'peliculasController@borrar')->middleware("admin");

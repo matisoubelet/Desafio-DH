@@ -37,6 +37,9 @@
               <a class="nav-link" href="{{ URL::to('agregarPelicula') }}">Añadir pelicula</a>
             </li>
             <li class="nav-item active">
+              <a class="nav-link" href="{{ URL::to('agregarActor') }}">Añadir Actor</a>
+            </li>
+            <li class="nav-item active">
               <a class="nav-link" href="{{ route('logout') }}">Logout</a>
             </li>
           </ul>

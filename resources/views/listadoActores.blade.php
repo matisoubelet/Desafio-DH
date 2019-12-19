@@ -11,7 +11,7 @@
       @forelse($actores as $actor)
       <li>
         <div class="actores">
-        {{$actor->getNombreCompleto()}}
+        <a href="/actores/{{$actor->id}}">{{$actor->getNombreCompleto()}}</a>
       </li>
       @empty
       <p>
