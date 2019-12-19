@@ -264,6 +264,10 @@ input[type=submit], [type=file] {
   border-radius: 0px;
   }
 
+  .flex{
+    min-height: 0vh;
+  }
+
 .poster{
   width: 100%;
   margin-top: 0%;
